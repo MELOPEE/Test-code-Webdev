@@ -1,0 +1,36 @@
+<div id="laboratoire-scale" style="display: flex; justify-content: center; align-items: center; gap: 40px; background: #1a1a1a; padding: 60px; font-family: sans-serif; color: white;">
+
+  <div style="text-align: center;">
+    <div style="width: 100px; height: 100px; border: 2px dashed #444; position: relative;">
+      <div style="width: 8px; height: 8px; background: red; border-radius: 50%; position: absolute; top: 46px; left: 46px; z-index: 10;"></div>
+      <div onmouseover="this.style.transform='scale(1.5)'" 
+           onmouseout="this.style.transform='scale(1)'"
+           style="width: 100px; height: 100px; background: #3498db; opacity: 0.8; transition: transform 0.5s ease-in-out; transform-origin: center;">
+      </div>
+    </div>
+    <p style="font-size: 12px; margin-top: 15px;">Origin: Center</p>
+  </div>
+
+  <div style="text-align: center;">
+    <div style="width: 100px; height: 100px; border: 2px dashed #444; position: relative;">
+      <div style="width: 8px; height: 8px; background: red; border-radius: 50%; position: absolute; top: -4px; left: -4px; z-index: 10;"></div>
+      <div onmouseover="this.style.transform='scale(1.5)'" 
+           onmouseout="this.style.transform='scale(1)'"
+           style="width: 100px; height: 100px; background: #e74c3c; opacity: 0.8; transition: transform 0.5s ease-in-out; transform-origin: top left;">
+      </div>
+    </div>
+    <p style="font-size: 12px; margin-top: 15px;">Origin: Top Left</p>
+  </div>
+
+  <div style="text-align: center;">
+    <div style="width: 100px; height: 100px; border: 2px dashed #444; position: relative;">
+      <div style="width: 8px; height: 8px; background: red; border-radius: 50%; position: absolute; bottom: -4px; right: -4px; z-index: 10;"></div>
+      <div onmouseover="this.style.transform='scale(1.5)'" 
+           onmouseout="this.style.transform='scale(1)'"
+           style="width: 100px; height: 100px; background: #2ecc71; opacity: 0.8; transition: transform 0.5s ease-in-out; transform-origin: bottom right;">
+      </div>
+    </div>
+    <p style="font-size: 12px; margin-top: 15px;">Origin: Bottom Right</p>
+  </div>
+
+</div>
