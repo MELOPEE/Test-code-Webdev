@@ -80,5 +80,53 @@
       <p>Good sleep helps recovery and focus. Aim for 7 to 9 hours per night and keep a regular schedule.</p>
     </div>
   </div>
+
+   explication détaillée de la solution.
+1. Le concept : L'état :checked
+
+Le cœur du système est l'élément <input type="radio">.
+
+    Pourquoi des boutons radio ? Parce qu'ils ont une propriété exclusive : si vous donnez le même attribut name à plusieurs boutons, un seul peut être sélectionné à la fois.
+    L'astuce : On cache les boutons (display: none), mais on garde les <label> associés. Quand l'utilisateur clique sur un label, le navigateur coche automatiquement le bouton radio correspondant.
+
+2. Structure HTML : La liaison
+
+Pour que le système fonctionne, chaque bouton radio doit être lié à son label via l'attribut for :
+
+<input type="radio" id="tab3" name="tab">
+<label for="tab3">Sleep</label>
+<div id="content3" class="tab-content">...</div>
+
+Ici, l'identifiant tab3 crée un lien direct. Le navigateur sait que cliquer sur le label "Sleep" active le bouton tab3.
+3. CSS : La magie des sélecteurs frères
+
+C'est ici que la logique de "visibilité" se joue. Nous utilisons deux sélecteurs CSS spécifiques :
+
+    Le sélecteur ~ (General Sibling Combinator) :
+
+    #tab3:checked ~ #content3 { display: block; }
+
+    Cela signifie : "Si le bouton tab3 est coché, cherche n'importe quel élément avec l'ID content3 qui se trouve après lui dans le code HTML et affiche-le". Par défaut, tous les .tab-content sont en display: none.
+
+    Le sélecteur + (Adjacent Sibling Combinator) :
+
+    #tab3:checked + label { background: #4cafef; }
+
+    Cela signifie : "Si le bouton tab3 est coché, applique ce style au label qui le suit immédiatement". Cela permet de mettre en surbrillance l'onglet actif.
+
+4. Pourquoi cette solution est efficace ?
+
+    Performance : Aucun script JavaScript n'est nécessaire. Le navigateur gère tout nativement, ce qui rend le composant extrêmement léger.
+    Accessibilité : En utilisant des <label>, le système reste accessible aux lecteurs d'écran.
+    Maintenance : Pour ajouter un quatrième onglet, il suffit de copier-coller le bloc HTML et d'ajouter une ligne dans les sélecteurs CSS. C'est une structure très modulaire.
+
+Résumé des étapes pour vos futurs projets :
+
+    Masquer les inputs radio.
+    Lier les labels aux inputs avec for et id.
+    Masquer tout le contenu par défaut (display: none).
+    Utiliser :checked avec les sélecteurs ~ et + pour révéler le contenu et styliser l'onglet actif.
+
+C'est une excellente base pour créer des interfaces propres sans alourdir votre code avec des bibliothèques externes ! Avez-vous des questions sur l'un de ces sélecteurs ?
 </body>
 </html>
